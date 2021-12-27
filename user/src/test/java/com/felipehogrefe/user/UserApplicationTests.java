@@ -1,10 +1,10 @@
-package com.felipehogrefe.investimentos;
+package com.felipehogrefe.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InvestimentosApplicationTests {
+class UserApplicationTests {
 
 	@Test
 	void contextLoads() {

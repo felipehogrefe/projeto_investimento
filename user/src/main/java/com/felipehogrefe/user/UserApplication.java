@@ -1,13 +1,13 @@
-package com.felipehogrefe.investimentos;
+package com.felipehogrefe.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InvestimentosApplication {
+public class UserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(InvestimentosApplication.class, args);
+		SpringApplication.run(UserApplication.class, args);
 	}
 
 }
