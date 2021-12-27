@@ -54,4 +54,11 @@ public class Share {
     public int hashCode() {
         return getAcronym() != null ? getAcronym().hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return "Share{" +
+                "acronym='" + acronym + '\'' +
+                '}';
+    }
 }

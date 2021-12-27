@@ -33,4 +33,12 @@ public class DailyValue {
     public void setTotalValue(Double totalValue) {
         this.totalValue = totalValue;
     }
+
+    @Override
+    public String toString() {
+        return "DailyValue{" +
+                "date=" + date +
+                ", totalValue=" + totalValue +
+                '}';
+    }
 }

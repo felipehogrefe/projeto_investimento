@@ -83,4 +83,13 @@ public class ShareValue {
         result = 31 * result + getShare().hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "ShareValue{" +
+                "value=" + value +
+                ", date=" + date +
+                ", share=" + share +
+                '}';
+    }
 }

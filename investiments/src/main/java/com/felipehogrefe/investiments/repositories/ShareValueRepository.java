@@ -7,5 +7,5 @@ import java.util.Date;
 
 public interface ShareValueRepository extends JpaRepository<ShareValue, Long> {
 
-    ShareValue getByDate(Date date);
+    ShareValue getByShareIdAndDate(Long shareId, Date date);
 }

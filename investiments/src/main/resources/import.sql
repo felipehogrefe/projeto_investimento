@@ -18,10 +18,10 @@ INSERT INTO tb_share_value (value, date, share_id) VALUES (110, {ts '2012-09-18 
 INSERT INTO tb_share_value (value, date, share_id) VALUES (120, {ts '2012-09-19 00:00:00.00'},1);
 INSERT INTO tb_share_value (value, date, share_id) VALUES (90, {ts '2012-09-20 00:00:00.00'},1);
 
-INSERT INTO tb_share_value (value, date, share_id) VALUES (100, {ts '2012-09-17 00:00:00.00'},2);
-INSERT INTO tb_share_value (value, date, share_id) VALUES (110, {ts '2012-09-18 00:00:00.00'},2);
-INSERT INTO tb_share_value (value, date, share_id) VALUES (120, {ts '2012-09-19 00:00:00.00'},2);
-INSERT INTO tb_share_value (value, date, share_id) VALUES (90, {ts '2012-09-20 00:00:00.00'},2);
+INSERT INTO tb_share_value (value, date, share_id) VALUES (10, {ts '2012-09-17 00:00:00.00'},2);
+INSERT INTO tb_share_value (value, date, share_id) VALUES (11, {ts '2012-09-18 00:00:00.00'},2);
+INSERT INTO tb_share_value (value, date, share_id) VALUES (12, {ts '2012-09-19 00:00:00.00'},2);
+INSERT INTO tb_share_value (value, date, share_id) VALUES (9, {ts '2012-09-20 00:00:00.00'},2);
 
 INSERT INTO tb_investment (share_id, user_id, initial_value, start_date, end_date, quantity_of_quotas) VALUES (1, 3, 100, {ts '2012-09-17 00:00:00.00'}, {ts '2012-09-19 00:00:00.00'},5);
 INSERT INTO tb_investment (share_id, user_id, initial_value, start_date, end_date, quantity_of_quotas) VALUES (2, 3, 100, {ts '2012-09-17 00:00:00.00'}, {ts '2012-09-19 00:00:00.00'},5);

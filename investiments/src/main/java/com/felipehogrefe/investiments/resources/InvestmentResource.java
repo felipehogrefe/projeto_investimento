@@ -42,7 +42,9 @@ public class InvestmentResource {
         Investment investment = investmentRepository.getById(investmentId);
         List<DailyValue> dailyValueList = new ArrayList<>();
         investment.getLocalStartDate().datesUntil(investment.getLocalEndDate()).forEach(localDate -> {
-            dailyValueList.add(new DailyValue(shareValueRepository.getByDate(Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant())), investment.getQuantityOfQuotas()));
+            ShareValue shareValue = shareValueRepository.getByShareIdAndDate(investment.getShare().getId(), Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant()));
+            DailyValue dailyValue = new DailyValue(shareValue, investment.getQuantityOfQuotas());
+            dailyValueList.add(dailyValue);
         });
         DailyValues dailyValues = new DailyValues(dailyValueList);
         return ResponseEntity.ok(dailyValues);
