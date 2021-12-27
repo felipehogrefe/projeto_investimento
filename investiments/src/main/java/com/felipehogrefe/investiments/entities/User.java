@@ -1,4 +1,4 @@
-package com.felipehogrefe.user.entities;
+package com.felipehogrefe.investiments.entities;
 
 import javax.persistence.*;
 import java.util.HashSet;
