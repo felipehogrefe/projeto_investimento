@@ -1,6 +1,8 @@
 package com.felipehogrefe.investiments.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Entity
@@ -19,7 +21,8 @@ public class Investment {
     @JoinColumn(name = "user_id")
     private User user;
 
-    private Double value;
+    private Double initialValue;
+    private int quantityOfQuotas;
     private Date startDate;
     private Date endDate;
 
@@ -27,19 +30,21 @@ public class Investment {
     public Investment() {
     }
 
-    public Investment(Share share, User user_id, Double value, Date startDate, Date endDate) {
+    public Investment(Share share, User user, Double initialValue, int totalQuotas, Date startDate, Date endDate) {
         this.share = share;
-        this.user = user_id;
-        this.value = value;
+        this.user = user;
+        this.initialValue = initialValue;
+        this.quantityOfQuotas = totalQuotas;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public Investment(Long id, Share share, User user_id, Double value, Date startDate, Date endDate) {
+    public Investment(Long id, Share share, User user, Double initialValue, int totalQuotas, Date startDate, Date endDate) {
         this.id = id;
         this.share = share;
-        this.user = user_id;
-        this.value = value;
+        this.user = user;
+        this.initialValue = initialValue;
+        this.quantityOfQuotas = totalQuotas;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -68,12 +73,12 @@ public class Investment {
         this.user = user;
     }
 
-    public Double getValue() {
-        return value;
+    public Double getInitialValue() {
+        return initialValue;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setInitialValue(Double initialValue) {
+        this.initialValue = initialValue;
     }
 
     public Date getStartDate() {
@@ -92,6 +97,22 @@ public class Investment {
         this.endDate = endDate;
     }
 
+    public LocalDate getLocalStartDate(){
+        return startDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public LocalDate getLocalEndDate(){
+        return endDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    public int getQuantityOfQuotas() {
+        return quantityOfQuotas;
+    }
+
+    public void setQuantityOfQuotas(int quantityOfQuotas) {
+        this.quantityOfQuotas = quantityOfQuotas;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -99,20 +120,22 @@ public class Investment {
 
         Investment that = (Investment) o;
 
+        if (getQuantityOfQuotas() != that.getQuantityOfQuotas()) return false;
         if (!getShare().equals(that.getShare())) return false;
         if (!getUser().equals(that.getUser())) return false;
-        if (!getValue().equals(that.getValue())) return false;
+        if (!getInitialValue().equals(that.getInitialValue())) return false;
         if (!getStartDate().equals(that.getStartDate())) return false;
-        return getEndDate() != null ? getEndDate().equals(that.getEndDate()) : that.getEndDate() == null;
+        return getEndDate().equals(that.getEndDate());
     }
 
     @Override
     public int hashCode() {
         int result = getShare().hashCode();
         result = 31 * result + getUser().hashCode();
-        result = 31 * result + getValue().hashCode();
+        result = 31 * result + getInitialValue().hashCode();
+        result = 31 * result + getQuantityOfQuotas();
         result = 31 * result + getStartDate().hashCode();
-        result = 31 * result + (getEndDate() != null ? getEndDate().hashCode() : 0);
+        result = 31 * result + getEndDate().hashCode();
         return result;
     }
 }
